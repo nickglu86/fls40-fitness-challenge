@@ -1,5 +1,5 @@
 import { Section, Cell, List } from '@telegram-apps/telegram-ui';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import type { FC } from 'react';
 
 import { Page } from '@/components/Page.tsx';
@@ -12,14 +12,12 @@ const TRAINING_TYPES = [
 ];
 
 export const TrainingSelectionPage: FC = () => {
-  const [webAppReady, setWebAppReady] = useState(false);
 
   useEffect(() => {
     // Initialize WebApp properly
     if (window.Telegram?.WebApp) {
       window.Telegram.WebApp.ready();
       window.Telegram.WebApp.expand();
-      setWebAppReady(true);
       console.log('WebApp initialized and ready');
     }
   }, []);
